@@ -1,12 +1,12 @@
 package data_access;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import entity.User;
 import use_case.change_password.ChangePasswordUserDataAccessInterface;
 import use_case.login.LoginUserDataAccessInterface;
 import use_case.signup.SignupUserDataAccessInterface;
+
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * In-memory implementation of the DAO for storing user data. This implementation does
@@ -33,6 +33,17 @@ public class InMemoryUserDataAccessObject implements SignupUserDataAccessInterfa
     @Override
     public User get(String username) {
         return users.get(username);
+    }
+
+    @Override
+    public void setCurrentUser(String name) {
+        currentUser = name;
+
+    }
+
+    @Override
+    public String getCurrentUser() {
+        return currentUser;
     }
 
     @Override
